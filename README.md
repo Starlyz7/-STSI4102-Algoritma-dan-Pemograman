@@ -1,1 +1,0 @@
-# -STSI4102-Algoritma-dan-Pemograman
