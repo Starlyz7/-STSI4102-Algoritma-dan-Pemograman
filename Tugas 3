@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class Tugas3 {
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    double[] Gaji={5000000,6500000,9500000};
+    double[] Lembur={0.30,0.32,0.34,0.36,0.38};
+            
+    System.out.print("Masukkan Golongan (A/B/C):");
+    char Golongan = input.next().toUpperCase().charAt(0);
+    
+    double GajiPokok=0;
+    
+    //Perhitungan Gaji pokok berdasarkan Golongan
+    boolean GolonganValid=true;
+    if (Golongan=='A'){
+        GajiPokok=Gaji[0];
+    }
+    else if(Golongan=='B'){
+        GajiPokok=Gaji[1];
+    }
+    else if(Golongan=='C'){
+        GajiPokok=Gaji[2];
+    }
+    else{
+        GolonganValid=false;
+        System.out.print("Golongan tidak valid.");
+    }
+    if(GolonganValid){
+        System.out.print("Masukkan Jam Lembur:");
+        int JamLembur=input.nextInt();
+                
+    double GajiLembur=0;
+
+    //Perhitungan Gaji Lembur sesuai Jam Lembur
+    if (JamLembur == 0) {
+        GajiLembur = GajiPokok * 0;
+    }
+    else if(JamLembur < 0){
+        System.out.print("Jam Lembur tidak valid.");
+    }
+    else if(JamLembur > 0 && JamLembur <= 5) {
+        GajiLembur = GajiPokok * Lembur[JamLembur-1];
+    }
+    else if(JamLembur >= 5){
+        GajiLembur=GajiPokok * Lembur[4];
+    } 
+    
+    //Perhitungan Total penghasilan
+    double TotalPenghasilan=GajiPokok+GajiLembur;
+    System.out.print("TotalPenghasilan Rp." + TotalPenghasilan);
+    }
+}
+}
